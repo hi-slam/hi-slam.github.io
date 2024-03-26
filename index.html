@@ -50,7 +50,7 @@
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
-        <div class="columns is-centered">
+        <!-- <div class="columns is-centered"> -->
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title"><img src="static/images/hi.png" width="80">-SLAM: Monocular Real-Time Dense Mapping with Hybrid Implicit Fields</h1>
             <!-- <div class="column is-full_width"> -->
@@ -89,7 +89,16 @@
                         <span>Paper</span>
                       </a>
                     </span>
-
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=6_oP5RJYDXk&list=PLGYCVSHzyGmp3Aw5JJ_LizejQ9naKjD1H&index=2"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
                   <a href="https://arxiv.org/abs/2310.04787" target="_blank"
@@ -103,7 +112,7 @@
             </div>
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </section>
@@ -126,14 +135,14 @@
 <!-- End teaser video -->
 
 <!-- Paper abstract -->
-<section class="section hero is-light">
+<section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present a neural field-based realtime monocular mapping framework for accurate and dense
+            We present <strong>HI-SLAM</strong>, a neural field-based realtime monocular mapping framework, for accurate and dense
             Simultaneous Localization and Mapping (SLAM). Recent neural
             mapping frameworks show promising results, but rely on RGBD or pose inputs, or cannot run in real-time. To address these
             limitations, our approach integrates dense-SLAM with neural
@@ -150,7 +159,8 @@
             monocular depth priors. We propose a novel joint depth and scale
             adjustment (JDSA) module to solve the scale ambiguity inherent
             in depth priors. Extensive evaluations across synthetic and realworld datasets validate that our approach outperforms existing
-            methods in accuracy and
+            methods in accuracy and map completeness while preserving
+            real-time performance.
         </p>
         </div>
       </div>
@@ -158,6 +168,31 @@
   </div>
 </section>
 <!-- End paper abstract -->
+
+<!-- Method. -->
+<section class="section">
+  <div class="container is-max-desktop">
+<div class="columns is-centered has-text-centered">
+  <div class="column is-full_width">
+    <hr>
+    <h2 class="title is-3">Method</h2>
+    <br>
+    <img src="static/images/pipeline.png" class="center"/>
+    <div class="content has-text-justified">
+      <br>  
+      <p>
+        Given an RGB image stream, HI-SLAM runs parallel tracking and mapping. On tracking part, two processes, namely frontend and
+        backend, are spawn for local and global consistent tracking respectively. Our SLAM frontend further leverages a pre-trained CV model to predict monocular
+        geometric priors. The keyframe data, including estimated poses, depths, and monocular normal priors, are shared between processes. On the mapping side,
+        the neural map is constructed incrementally based on the latest estimates from the shared buffer in an online manner.
+        
+      </p>
+    </div>
+  </div>
+</div>
+<hr>
+</div>
+</section>
 
 
 <!--BibTex citation -->
@@ -185,7 +220,7 @@
 
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
 
